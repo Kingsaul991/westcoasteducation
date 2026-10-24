@@ -1,0 +1,15 @@
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\bin\Debug\net10.0\WestcoastEducation.exe
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\bin\Debug\net10.0\WestcoastEducation.deps.json
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\bin\Debug\net10.0\WestcoastEducation.runtimeconfig.json
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\bin\Debug\net10.0\WestcoastEducation.dll
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\bin\Debug\net10.0\WestcoastEducation.pdb
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\obj\Debug\net10.0\WestcoastEducation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\obj\Debug\net10.0\WestcoastEducation.AssemblyInfoInputs.cache
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\obj\Debug\net10.0\WestcoastEducation.AssemblyInfo.cs
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\obj\Debug\net10.0\WestcoastEducation.csproj.CoreCompileInputs.cache
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\obj\Debug\net10.0\WestcoastEducation.sourcelink.json
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\obj\Debug\net10.0\WestcoastEducation.dll
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\obj\Debug\net10.0\refint\WestcoastEducation.dll
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\obj\Debug\net10.0\WestcoastEducation.pdb
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\obj\Debug\net10.0\WestcoastEducation.genruntimeconfig.cache
+C:\Users\saulj\Documents\myClassAssingment\WestcoastEducation\obj\Debug\net10.0\ref\WestcoastEducation.dll
