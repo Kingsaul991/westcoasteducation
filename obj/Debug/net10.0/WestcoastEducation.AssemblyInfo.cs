@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WestcoastEducation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57f34897cedfabfc8109a08560c88f5c35ff6858")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de6c6e60e9e009b0d0858ff024170099587fe266")]
 [assembly: System.Reflection.AssemblyProductAttribute("WestcoastEducation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WestcoastEducation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

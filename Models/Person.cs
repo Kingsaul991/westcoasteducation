@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 using WestcoastEducation.Interfaces;
  
 namespace WestcoastEducation.Models;
@@ -13,10 +15,10 @@ public abstract class Person : IIdentifiable
     public string PhoneNumber { get; set; } = "";
 
     public string PersonalIdentityNumber { get; set; } = "";
- 
 
     public Address Address { get; set; } = new();
- 
+
+    [JsonIgnore]
 
     public string Key => PersonalIdentityNumber;
  

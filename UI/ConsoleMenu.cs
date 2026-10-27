@@ -1,3 +1,5 @@
+using WestcoastEducation.Interfaces;
+
 using WestcoastEducation.Models;
 
 using WestcoastEducation.Services;
@@ -9,12 +11,16 @@ public class ConsoleMenu
 {
 
     private readonly SchoolRegistry _registry;
+
+    private readonly ICourseStorage _storage;
  
-    public ConsoleMenu(SchoolRegistry registry)
+    public ConsoleMenu(SchoolRegistry registry, ICourseStorage storage)
 
     {
 
         _registry = registry;
+
+        _storage = storage;
 
     }
  
@@ -72,11 +78,14 @@ public class ConsoleMenu
 
         Console.WriteLine("11. List staff");
 
+        Console.WriteLine("12. Save courses to JSON");
+
+        Console.WriteLine("13. Load courses from JSON");
+
         Console.WriteLine(" 0. Exit");
 
     }
- 
-    private bool HandleChoice(string choice)
+        private bool HandleChoice(string choice)
 
     {
 
@@ -106,6 +115,10 @@ public class ConsoleMenu
 
             case "11": PrintAll("Staff", _registry.AllStaff()); break;
 
+            case "12": SaveCourses(); break;
+
+            case "13": LoadCourses(); break;
+
             case "0": return false;
 
             default: Console.WriteLine("Unknown choice, try again."); break;
@@ -115,7 +128,6 @@ public class ConsoleMenu
         return true;
 
     }
- 
  
     private static T ReadPerson<T>() where T : Person, new()
 
@@ -172,7 +184,6 @@ public class ConsoleMenu
         return manager;
 
     }
- 
  
     private void AddStudent()
 
@@ -407,6 +418,66 @@ public class ConsoleMenu
         {
 
             Console.WriteLine("(none)");
+
+        }
+
+    }
+ 
+    private void SaveCourses()
+
+    {
+
+        try
+
+        {
+
+            _storage.Save(_registry.Courses.GetAll());
+
+            Console.WriteLine($"Saved {_registry.Courses.GetAll().Count} course(s).");
+
+        }
+
+        catch (IOException ex)
+
+        {
+
+            Console.WriteLine($"Could not save courses: {ex.Message}");
+
+        }
+
+    }
+ 
+    private void LoadCourses()
+
+    {
+
+        try
+
+        {
+
+            var loaded = _storage.Load();
+
+            if (loaded.Count == 0)
+
+            {
+
+                Console.WriteLine("No saved courses found.");
+
+                return;
+
+            }
+ 
+            var count = _registry.ReplaceCourses(loaded);
+
+            Console.WriteLine($"Loaded {count} course(s).");
+
+        }
+
+        catch (Exception ex) when (ex is IOException or System.Text.Json.JsonException)
+
+        {
+
+            Console.WriteLine($"Could not load courses: {ex.Message}");
 
         }
 

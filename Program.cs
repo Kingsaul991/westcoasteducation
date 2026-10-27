@@ -4,12 +4,12 @@ using WestcoastEducation.Services;
 
 using WestcoastEducation.UI;
  
-Console.OutputEncoding = Encoding.UTF8; 
+Console.OutputEncoding = Encoding.UTF8;
  
 var registry = new SchoolRegistry();
 
-new ConsoleMenu(registry).Run();
+SeedData.Populate(registry);
  
- 
- 
-                      
+var storage = new JsonCourseStorage(Path.Combine("data", "courses.json"));
+
+new ConsoleMenu(registry, storage).Run();

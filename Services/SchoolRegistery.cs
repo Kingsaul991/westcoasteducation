@@ -3,7 +3,6 @@ using WestcoastEducation.Interfaces;
 using WestcoastEducation.Models;
  
 namespace WestcoastEducation.Services;
- 
 
 public class SchoolRegistry
 
@@ -18,7 +17,6 @@ public class SchoolRegistry
     public IRepository<EducationManager> EducationManagers { get; } = new Repository<EducationManager>();
 
     public IRepository<Administrator> Administrators { get; } = new Repository<Administrator>();
- 
 
     public List<Teacher> AllStaff()
 
@@ -57,8 +55,6 @@ public class SchoolRegistry
         return null;
 
     }
- 
-
     public bool AddStaff(Teacher staff)
 
     {
@@ -114,6 +110,77 @@ public class SchoolRegistry
         course.RemoveTeacher();
 
         return Courses.Remove(courseNumber);
+
+    }
+    public int ReplaceCourses(List<Course> loadedCourses)
+
+    {
+
+        foreach (var course in Courses.GetAll().ToList())
+
+        {
+
+            RemoveCourse(course.CourseNumber);
+
+        }
+ 
+        foreach (var course in loadedCourses)
+
+        {
+
+            if (course.Teacher != null)
+
+            {
+
+                var loadedTeacher = course.Teacher;
+
+                var teacher = FindStaff(loadedTeacher.Key);
+
+                if (teacher == null)
+
+                {
+
+                    AddStaff(loadedTeacher);
+
+                    teacher = loadedTeacher;
+
+                }
+ 
+                course.RemoveTeacher();
+
+                course.AssignTeacher(teacher);
+
+            }
+ 
+            var loadedStudents = course.Students.ToList();
+
+            course.ClearStudents();
+
+            foreach (var loadedStudent in loadedStudents)
+
+            {
+
+                var student = Students.Find(loadedStudent.Key);
+
+                if (student == null)
+
+                {
+
+                    Students.Add(loadedStudent);
+
+                    student = loadedStudent;
+
+                }
+ 
+                course.Enroll(student);
+
+            }
+ 
+            Courses.Add(course);
+
+        }
+ 
+        return Courses.GetAll().Count;
 
     }
 

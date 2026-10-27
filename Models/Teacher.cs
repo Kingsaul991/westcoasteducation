@@ -1,16 +1,25 @@
-namespace WestcoastEducation.Models;
+using System.Text.Json.Serialization;
  
+namespace WestcoastEducation.Models;
+
+[JsonDerivedType(typeof(Teacher), "teacher")]
+
+[JsonDerivedType(typeof(EducationManager), "educationManager")]
+
+[JsonDerivedType(typeof(Administrator), "administrator")]
+
 public class Teacher : Person
 
 {
-
 
     private readonly List<Course> _courses = new();
  
     public string AreaOfExpertise { get; set; } = "";
  
+
+    [JsonIgnore]
+
     public IReadOnlyList<Course> Courses => _courses;
- 
 
     internal void AddCourse(Course course)
 
@@ -49,4 +58,3 @@ public class Teacher : Person
     }
 
 }
- 
